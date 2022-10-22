@@ -3,9 +3,18 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  context 'check validation' do
-    it { should validate_presence_of :fname }
-    it { should validate_presence_of :lname }
+  describe 'validation' do
+    context 'for fname' do
+      it { should validate_presence_of :fname }
+    end
+
+    context 'for lname' do
+      it { should validate_presence_of :lname }
+    end
+  end
+
+  describe 'associations' do
+    it { should have_many(:internal_phones) }
   end
 
   describe '#full_name' do
