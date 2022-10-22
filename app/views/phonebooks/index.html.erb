@@ -1,0 +1,16 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Сотрудник</th>
+    <th scope="col">Внутренний номер</th>
+  </tr>
+  <tbody>
+  <% @users.each.with_index(1) do |user, index| %>
+    <tr>
+      <th scope="row"><%= index %></th>
+    <%= render partial: 'phonebooks/phone', locals: { user: user } %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

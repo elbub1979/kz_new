@@ -1,0 +1,8 @@
+ru:
+  hello: "Hello world"
+
+  layouts:
+    application:
+      main: "Главная"
+      phonebook: "Телефонная книга"
+      home: "Домой"
