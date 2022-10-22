@@ -42,4 +42,34 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe '#capitalize_name' do
+    let(:user) { User.create!(fname: 'георгий', lname: 'васин') }
+
+    context 'without patronymic name' do
+      context 'fname lname' do
+        it 'should be valid' do
+          expect(user.fname).to eq('Георгий')
+          expect(user.lname).to eq('Васин')
+        end
+
+        it 'should be not valid' do
+          expect(user.fname).to_not eq('георгий')
+          expect(user.lname).to_not eq('васин')
+        end
+      end
+    end
+
+    context 'with patronymic name' do
+      before { user.update_attribute(:pname, 'петрович') }
+
+      it 'should be valid' do
+        expect(user.pname).to eq('Петрович')
+      end
+
+      it 'should be not valid' do
+        expect(user.pname).to_not eq('петрович')
+      end
+    end
+  end
 end
