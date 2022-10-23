@@ -6,7 +6,7 @@ class PhonebooksController < ApplicationController
   def create; end
 
   def fill_in
-    all_contacts = Kerio::KerioConnect.get_all_contacts
+    all_contacts = Kerio::KerioOperator.get_all_contacts
 
     all_contacts.each do |contact|
       number = contact[:number]
