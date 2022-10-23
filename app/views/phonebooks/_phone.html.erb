@@ -1,4 +1,6 @@
 <td><%= user.full_name %></td>
-<% user.internal_phones.each do |phone| %>
-  <td><%= phone.number %></td>
-<% end %>
+<td>
+  <% user.internal_phones.each do |phone| %>
+    <%= phone.number %>
+  <% end %>
+</td>

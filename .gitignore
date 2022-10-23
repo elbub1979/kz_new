@@ -17,7 +17,6 @@
 !/tmp/pids/
 !/tmp/pids/.keep
 
-
 /public/assets
 
 # Ignore master key for decrypting credentials and more.

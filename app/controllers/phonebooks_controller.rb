@@ -6,7 +6,7 @@ class PhonebooksController < ApplicationController
   def create; end
 
   def fill_in
-    all_contacts = Kerio::KerioOperator.get_all_contacts
+    all_contacts = Kerio::Operator.get_all_contacts
 
     all_contacts.each do |contact|
       number = contact[:number]
@@ -15,8 +15,9 @@ class PhonebooksController < ApplicationController
       pname = contact[:pname]
 
       user = User.find_or_create_by(fname: fname, lname: lname, pname: pname)
+      phone = InternalPhone.find_or_create_by(number: number)
 
-      InternalPhone.find_or_create_by(number: number, user: user)
+      phone.update_attribute(:user, user)
     end
   end
 end
