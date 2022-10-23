@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   has_many :internal_phones
   before_save :capitalize_name
@@ -5,7 +7,7 @@ class User < ApplicationRecord
   validates :fname, :lname, presence: true
 
   def full_name
-    pname.nil? ? "#{fname} #{lname}" : "#{fname} #{pname} #{lname}"
+    pname.nil? ? "#{lname} #{fname}" : "#{lname} #{fname} #{pname}"
   end
 
   private

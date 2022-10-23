@@ -16,7 +16,7 @@ class PhonebooksController < ApplicationController
 
       user = User.find_or_create_by(fname: fname, lname: lname, pname: pname)
 
-      InternalPhone.find_or_create_by(number, user: user)
+      InternalPhone.find_or_create_by(number: number, user: user)
     end
   end
 end
