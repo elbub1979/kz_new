@@ -15,7 +15,7 @@ class PhonebooksController < ApplicationController
       pname = contact[:pname]
 
       user = User.find_or_create_by(fname: fname, lname: lname, pname: pname)
-      phone = InternalPhone.find_or_create_by(number: number)
+      phone = InternalPhone.find_or_initialize_by(number: number)
 
       phone.update_attribute(:user, user)
     end
