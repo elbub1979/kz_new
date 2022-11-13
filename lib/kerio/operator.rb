@@ -1,8 +1,3 @@
-# frozen_string_literal: true
-# require 'api'
-# require 'uri'
-# require 'json-rpc'
-
 module Kerio
   class Operator
     class << self
