@@ -14,7 +14,14 @@ gem 'sassc-rails'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
+
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
+gem 'certified', '~> 1.0'
+gem 'eventmachine'
+gem 'httmultiparty'
+gem 'json-rpc', '~> 0.1.6'
+gem 'mimemagic'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]

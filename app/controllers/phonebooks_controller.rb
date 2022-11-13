@@ -1,6 +1,6 @@
 class PhonebooksController < ApplicationController
   def index
-    @users = User.order(lname: :desc)
+    @users = User.order(:lname)
   end
 
   def create; end
