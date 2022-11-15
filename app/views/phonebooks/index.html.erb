@@ -1,10 +1,10 @@
-<%= button_to "Заполнить", fill_in_phonebooks_path, method: :get, class: 'btn btn-light' %>
 <table class="table">
   <thead>
   <tr>
     <th scope="col">#</th>
     <th scope="col">Сотрудник</th>
     <th scope="col">Внутренний номер</th>
+    <th scope="col">Скрытый</th>
   </tr>
   <tbody>
   <% @users.each.with_index(1) do |user, index| %>

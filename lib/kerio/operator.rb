@@ -11,21 +11,21 @@ module Kerio
                                               vendor: 'Kerio',
                                               version: 'current' })
 
-        phones = operator.Extensions.get(query: { domainId: Rails.application.credentials.company.domain,
-                                             direction: { columnName: 'USERNAME', orderBy: 'ASC' } })
-        users = operator.Users.get(query: { domainId: Rails.application.credentials.company.domain,
-                                            direction: { columnName: 'USERNAME', orderBy: 'ASC' } })
+        phones = operator.Extensions.get(query: { domainId: Rails.application.credentials.company.domain })
+        # users = operator.Users.get(query: { domainId: Rails.application.credentials.company.domain,
+        #                                     direction: { columnName: 'USERNAME', orderBy: 'ASC' } })
 
-        data = users.instance_variable_get(:@resp).parsed_response['result']['userList']
+        # data = phones.instance_variable_get(:@resp).parsed_response['result']['userList']
+        data = phones.instance_variable_get(:@resp).parsed_response['result']['sipExtensionList']
 
-        contacts = data.map do |user|
-          next if user['EXTENSIONS'].empty?
+        contacts = data.collect do |user|
+          next if user.nil?
 
-          number = user['EXTENSIONS'][0]['TEL_NUM']
           username = user['USERNAME']
           email = user['EMAIL']
+          number = user['telNum']
           name = user['FULL_NAME'].split(' ')
-          { username: username, email: email, fname: name[1], pname: name[2], lname: name[0], number: number }
+          { username: username, email: email, number: number, lname: name[0], fname: name[1], pname: name[2] }
         end
 
         operator.Session.logout
