@@ -8,10 +8,12 @@
   </tr>
   <tbody>
   <% @users.each.with_index(1) do |user, index| %>
-    <tr>
-      <th scope="row"><%= index %></th>
-    <%= render partial: 'phonebooks/phone', locals: { user: user } %>
-    </tr>
+    <% unless user.hidden? %>
+      <tr>
+        <th scope="row"><%= index %></th>
+        <%= render partial: 'phonebooks/phone', locals: { user: user } %>
+      </tr>
+    <% end %>
   <% end %>
   </tbody>
 </table>

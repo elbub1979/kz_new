@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_16_191154) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_15_144433) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,6 +28,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_16_191154) do
     t.string "pname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "hidden", default: false
+    t.string "email"
+    t.string "login"
   end
 
   add_foreign_key "internal_phones", "users"

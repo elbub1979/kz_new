@@ -27,6 +27,8 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'rspec-rails'
+  gem 'rubocop'
+  gem 'rubocop'
 end
 
 group :development do
@@ -37,6 +39,5 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
-  gem 'sqlite3'
   gem 'webdrivers'
 end
