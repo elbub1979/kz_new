@@ -5,6 +5,11 @@ class PhonebooksController < ApplicationController
 
   def create; end
 
+  def list
+    @users = User.includes(:internal_phones).order("#{params[:column]} #{params[:direction]}")
+    render partial: 'phonebooks/phone', users: @users
+  end
+
   def fill_in
     all_contacts = Kerio::Operator.get_all_contacts
 
