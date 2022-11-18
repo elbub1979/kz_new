@@ -2,6 +2,7 @@
 
 class User < ApplicationRecord
   has_many :internal_phones
+  # has_many :data_carriers, class_name: 'DSP::DataCarrier'
 
   validates :lname, presence: true
 
