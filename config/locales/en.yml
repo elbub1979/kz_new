@@ -6,3 +6,8 @@ en:
       main: "Main"
       phonebook: "Phonebook"
       home: "Home"
+      data_carrier: "DSP data carriers"
+
+  # не определено
+  # views/dsp/data_carriers/_form.html.erb
+  choose_user: "Choose_user"

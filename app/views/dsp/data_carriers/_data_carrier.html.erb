@@ -1,0 +1,38 @@
+<%= turbo_frame_tag "phones" do %>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th id="carrier_type" scope="col">
+        <%= sort_indicator if params[:column] == "carrier_type" %>
+        <%= sort_link(column: "carrier_type", label: "Тип устройства") %>
+      </th>
+      <th id="carrier_model" scope="col">
+        <%= sort_indicator if params[:column] == "carrier_model" %>
+        <%= sort_link(column: "carrier_model", label: "Модель устройства") %>
+      </th>
+      <th id="registration_number" scope="col">
+        <%= sort_indicator if params[:column] == "registration_number" %>
+        <%= sort_link(column: "registration_number", label: "Регистрационный номер") %>
+      </th>
+      <th id="user" scope="col">
+        <%= sort_indicator if params[:column] == "user" %>
+        <%= sort_link(column: "user", label: "Выдан:") %>
+      </th>
+    </tr>
+    <tbody>
+
+    <% @data_carriers.each.with_index(1) do |data_carrier, index| %>
+        <tr>
+          <th scope="row"><%= index %></th>
+          <td><%= data_carrier.carrier_type %></td>
+          <td><%= data_carrier.carrier_model %></td>
+          <td><%= data_carrier.registration_number %></td>
+          <td><%= data_carrier.user.full_name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+

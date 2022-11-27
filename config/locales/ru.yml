@@ -6,3 +6,8 @@ ru:
       main: "Главная"
       phonebook: "Телефонная книга"
       home: "Домой"
+      data_carrier: "ДСП устройства"
+
+  # не определено
+  # views/dsp/data_carriers/_form.html.erb
+  choose_user: "Выберите пользователя"

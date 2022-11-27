@@ -6,5 +6,9 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :dsp do
+    resources :data_carriers
+  end
+
   root 'phonebooks#index'
 end

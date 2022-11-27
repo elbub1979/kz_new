@@ -10,16 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_18_123501) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_27_155610) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "dsp_data_carriers", force: :cascade do |t|
-    t.string "type"
-    t.string "model"
-    t.string "registration_number"
+  create_table "departments", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "departments_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "department_id", null: false
+    t.index ["department_id"], name: "index_departments_users_on_department_id"
+    t.index ["user_id"], name: "index_departments_users_on_user_id"
+  end
+
+  create_table "dsp_data_carriers", force: :cascade do |t|
+    t.string "carrier_type"
+    t.string "carrier_model"
+    t.string "registration_number"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_dsp_data_carriers_on_user_id"
   end
 
   create_table "internal_phones", force: :cascade do |t|

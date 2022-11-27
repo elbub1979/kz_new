@@ -1,0 +1,23 @@
+<%= form_with model: @data_carrier do |form| %>
+  <form>
+    <div class="mb-3">
+      <%= form.label :carrier_type, class: 'form-label' %>
+      <%= form.text_field :carrier_type, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :carrier_model, class: 'form-label' %>
+      <%= form.text_field :carrier_model, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :registration_number, class: 'form-label' %>
+      <%= form.text_field :registration_number, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= form.select :user_id,@users.map { |user| [user.full_name, user.id] },
+                      { label: "#{t('choose_user')}" }, { class: "form-select" } %>
+    </div>
+    <div class="mb-3">
+      <%= form.submit %>
+    </div>
+  </form>
+<% end %>
