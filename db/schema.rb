@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_27_155610) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_27_202156) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,29 +20,29 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_27_155610) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "departments_users", id: false, force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "department_id", null: false
-    t.index ["department_id"], name: "index_departments_users_on_department_id"
-    t.index ["user_id"], name: "index_departments_users_on_user_id"
-  end
-
   create_table "dsp_data_carriers", force: :cascade do |t|
     t.string "carrier_type"
     t.string "carrier_model"
     t.string "registration_number"
-    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_dsp_data_carriers_on_user_id"
+  end
+
+  create_table "employees", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "department_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["department_id"], name: "index_employees_on_department_id"
+    t.index ["user_id"], name: "index_employees_on_user_id"
   end
 
   create_table "internal_phones", force: :cascade do |t|
     t.string "number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
-    t.index ["user_id"], name: "index_internal_phones_on_user_id"
+    t.bigint "employee_id", null: false
+    t.index ["employee_id"], name: "index_internal_phones_on_employee_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -56,5 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_27_155610) do
     t.string "login"
   end
 
-  add_foreign_key "internal_phones", "users"
+  add_foreign_key "employees", "departments"
+  add_foreign_key "employees", "users"
+  add_foreign_key "internal_phones", "employees"
 end
