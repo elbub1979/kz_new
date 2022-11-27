@@ -2,8 +2,10 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.2'
+gem 'actionmailer'
 gem 'bootsnap', require: false
 gem 'bootstrap', '~> 5.1.3'
+gem 'devise'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'pg'
@@ -26,8 +28,8 @@ gem 'mimemagic'
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
+  gem 'letter_opener'
   gem 'rspec-rails'
-  gem 'rubocop'
   gem 'rubocop'
 end
 
