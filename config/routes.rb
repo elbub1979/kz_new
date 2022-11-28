@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+
   resources :phonebooks do
     get 'fill_in', on: :collection
     collection do
