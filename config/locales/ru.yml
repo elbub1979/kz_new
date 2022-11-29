@@ -7,7 +7,12 @@ ru:
       phonebook: "Телефонная книга"
       home: "Домой"
       data_carrier: "ДСП устройства"
+      sign_out: "Выйти"
+      sign_in: "Войти"
+      sign_up: "Зарегистрироваться"
+      fill_in: "Заполнить"
 
   # не определено
   # views/dsp/data_carriers/_form.html.erb
   choose_user: "Выберите пользователя"
+
