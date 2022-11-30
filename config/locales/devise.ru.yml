@@ -7,10 +7,10 @@ ru:
     failure:
       already_authenticated: "Вы уже вошли в систему."
       inactive: "Ваш аккаунт еще не активирован."
-      invalid: "Invalid %{authentication_keys} or password."
+      invalid: "Неверный %{authentication_keys} или пароль."
       locked: "Ваш аккаунт заблокирован."
       last_attempt: "У вас есть еще одна попытка, прежде чем ваш аккаунт будет заблокирован."
-      not_found_in_database: "Invalid %{authentication_keys} or password."
+      not_found_in_database: "Неверный %{authentication_keys} или пароль."
       timeout: "Ваш сеанс истек. Пожалуйста, авторизуйтесь снова, чтобы продолжить."
       unauthenticated: "Вам нужно авторизоваться или зарегистрироваться перед продолжением."
       unconfirmed: "Вы должны подтвердить свой адрес электронной почты перед продолжением."
@@ -26,8 +26,8 @@ ru:
       password_change:
         subject: "Пароль изменён"
     omniauth_callbacks:
-      failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
-      success: "Successfully authenticated from %{kind} account."
+      failure: "Не удалось аутентифицировать вас с помощью  %{kind}б потому-что \"%{reason}\"."
+      success: "Успешно прошла аутентификацию с учетной записи %{kind}."
     passwords:
       no_token: "Вы не можете получить доступ к этой странице без получения от сброса пароля электронной почты. Если вы пришли от сброса пароля электронной почты, пожалуйста, убедитесь, что вы использовали полный URL при условии."
       send_instructions: "В течение нескольких минут вы получите письмо с инструкциями о том, как сбросить пароль."
@@ -54,11 +54,11 @@ ru:
   errors:
     messages:
       already_confirmed: "был уже подтвержден, пожалуйста, попробуйте войти в систему"
-      confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
+      confirmation_period_expired: "необходимо подтвердить в течение %{period}, пожалуйста, запросите новый"
       expired: "истек срок действия, пожалуйста, запросите новый"
       not_found: "не найжен"
       not_locked: "не был заблокирован"
       not_saved:
-        one: "1 error prohibited this %{resource} from being saved:"
-        other: "%{count} errors prohibited this %{resource} from being saved:"
-        few: "%{count} errors prohibited this %{resource} from being saved:"
+        one: "1 ошибка не позволила сохранить %{resource}:"
+        other: "%{count} ошибок не позволяют сохранить %{resource}:"
+        few: "%{count} ошибки не позволяют сохранить %{resource}:"
