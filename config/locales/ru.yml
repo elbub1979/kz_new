@@ -1,6 +1,14 @@
 ru:
-  hello: "Hello world"
-
+  activerecord:
+    models:
+      user: Пользователя
+    attributes:
+      user:
+        fname: "Имя"
+        pname: "Отчество"
+        lname: "Фамилия"
+        email: 'Электронная почта'
+        password: 'Пароль'
   layouts:
     application:
       main: "Главная"
