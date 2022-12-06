@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable, :recoverable,
+  before_save :get_ldap_email
+
+  devise :ldap_authenticatable, :registerable, :recoverable,
          :rememberable, :trackable, :confirmable, :validatable
 
   has_many :employees
@@ -16,4 +18,12 @@ class User < ApplicationRecord
   def hidden?
     hidden
   end
+
+  private
+
+  def get_ldap_email
+    self.email = Devise::LdapAdapter.get_ldap_param(self.username,"mail")
+  end
+
+
 end

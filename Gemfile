@@ -6,6 +6,7 @@ gem 'actionmailer'
 gem 'bootsnap', require: false
 gem 'bootstrap', '~> 5.1.3'
 gem 'devise'
+gem 'devise_ldap_authenticatable', git: 'git@github.com:cschiewek/devise_ldap_authenticatable.git'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'pg'
