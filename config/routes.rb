@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
+  devise_scope :user do
+    get 'read_from_ad', to: 'users/registrations#read_from_ad' #, as: 'read_from_ad'
+  end
+
   resources :phonebooks do
-    get 'fill_in', on: :collection
     collection do
       get 'list'
-    end
+      get 'fill_in'end
   end
 
   namespace :dsp do
