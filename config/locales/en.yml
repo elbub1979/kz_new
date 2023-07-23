@@ -1,12 +1,24 @@
 en:
-  hello: "Hello world"
-
+  activerecord:
+    models:
+      user: User
+    attributes:
+      user:
+        fname: "First name"
+        pname: "Patronymic"
+        lname: "Surname"
+        email: 'Email'
+        password: 'Password'
   layouts:
     application:
       main: "Main"
       phonebook: "Phonebook"
       home: "Home"
       data_carrier: "DSP data carriers"
+      sign_out: "Log out"
+      sign_in: "Sign in"
+      sign_up: "Sign up"
+      fill_in: "Fill in"
 
   # не определено
   # views/dsp/data_carriers/_form.html.erb
