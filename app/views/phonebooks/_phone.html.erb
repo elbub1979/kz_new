@@ -14,13 +14,13 @@
       <th scope="col">Скрытый</th>
     </tr>
     <tbody>
-    <% @users.each.with_index(1) do |user, index| %>
-      <% unless user.hidden? %>
+    <% @employees.each.with_index(1) do |employee, index| %>
+      <% unless employee.user.hidden? %>
         <tr>
           <th scope="row"><%= index %></th>
-          <td><%= user.full_name %></td>
+          <td><%= employee.user.full_name %></td>
           <td>
-            <% user.internal_phones.each do |phone| %>
+            <% employee.user.internal_phones.each do |phone| %>
               <%= phone.number %>
             <% end %>
           </td>

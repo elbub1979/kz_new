@@ -16,4 +16,13 @@ class User < ApplicationRecord
   def hidden?
     hidden
   end
+
+  # разрешить регистрацию без пароля
+  def password_required?
+    new_record? ? false : super
+  end
+
+  def email_required?
+    true
+  end
 end

@@ -1,8 +1,9 @@
 class PhonebooksController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: [:index, :create, :fill_in]
 
   def index
-    @users = User.order(:lname)
+    # @employees = Employee.order(:lname)
+    @employees = Employee.all
   end
 
   def create; end
@@ -27,9 +28,9 @@ class PhonebooksController < ApplicationController
 
 
       user = User.create_with(fname: fname, lname: lname, pname: pname, email: email).find_or_create_by!(login: username)
-      phone = InternalPhone.find_or_initialize_by(number: number)
+      phone = InternalPhone.find_or_create_by!(number: number)
 
-      phone.update_attribute(:user, user)
+      # phone.update_attribute(:user, user)
     end
   end
 end

@@ -1,0 +1,8 @@
+<tr>
+  <th scope="row"><%= index %></th>
+  <td><%= user[:name] %></td>
+  <td><% user[:mail] %></td>
+  <td>
+    <%= check_box_tag('hidden?', value = true, checked = false, options = {}) %>
+  </td>
+</tr>

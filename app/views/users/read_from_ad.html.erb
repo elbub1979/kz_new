@@ -1,0 +1,23 @@
+<h1>from ad</h1>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Сотрудник</th>
+    <th>email</th>
+  </tr>
+  <tbody>
+  <%= render @users %>
+  </tbody>
+</table>
+
+
+
+<% @users.each do |user| %>
+  <div>
+    <p>
+      <%= user[:name] if user[:mail].present? %>
+    </p>
+  </div>
+<% end %>

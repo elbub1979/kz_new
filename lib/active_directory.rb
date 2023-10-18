@@ -1,7 +1,9 @@
 require 'net-ldap'
 
 class ActiveDirectory
-  def initialize(*args)
+  include ActiveModel::Model
+
+  def initialize(args)
     @type = args[:type]
     @host = Rails.application.credentials.active_directory.host
     @port = Rails.application.credentials.active_directory.port
@@ -16,9 +18,14 @@ class ActiveDirectory
     ldap = Net::LDAP.new(host: @host, port: @port)
     treebase = "OU=#{@type}, OU=#{@ou}, DC=#{@dc2}, DC=#{@dc1}"
 
-    ldap.auth username, password
+    ldap.auth @admin_login, @admin_password
 
-    ldap.search(base: treebase)[0..20].map { |entry| entry['name'][0].split(' ') }
+    ldap.search(base: treebase).map do |entry|
+      {
+        name: entry['name'][0].to_s,
+        mail: entry['mail'][0].to_s
+      }
+    end
 
   end
 end
